@@ -83,29 +83,34 @@ function App() {
   };
   
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app-container">
+      <header className="app-header">
         <h1>AI News Digest Bot</h1>
         <p>Enter a topic to get a summary and ask questions based on recent news articles.</p>
-        <form onSubmit={handleAnalyze}>
-          <input
-            type="text"
-            placeholder="e.g., 'artificial intelligence'"
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-            disabled={loading}
-          />
-          <button type="submit" disabled={loading}>
-            {loading ? 'Analyzing...' : 'Analyze Topic'}
-          </button>
-        </form>
+        <div className="input-card">
+          <form onSubmit={handleAnalyze}>
+            <input
+              type="text"
+              placeholder="e.g., 'artificial intelligence'"
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
+              disabled={loading}
+              className="text-input"
+            />
+            <button type="submit" disabled={loading} className="main-button">
+              {loading ? 'Analyzing...' : 'Analyze Topic'}
+            </button>
+          </form>
+        </div>
+        
         {summary && (
           <div className="summary-section">
             <p>{summary}</p>
           </div>
         )}
+        
         {showQuestionSection && (
-          <div className="question-section">
+          <div className="input-card question-card">
             <h3>Ask a question about the topic:</h3>
             <form onSubmit={handleAskQuestion}>
               <input
@@ -114,8 +119,9 @@ function App() {
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 disabled={loading}
+                className="text-input"
               />
-              <button type="submit" disabled={loading}>
+              <button type="submit" disabled={loading} className="main-button">
                 {loading ? 'Thinking...' : 'Get Answer'}
               </button>
             </form>

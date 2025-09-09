@@ -1,200 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* Import Google Fonts for a better look */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Lato:wght@400;700&display=swap');
 
-:root {
-  --primary-color: #ff0000;
-  --primary-dark: #b30000;
-  --secondary-color: #3f51b5;
-  --secondary-dark: #2c387e;
-  --bg-color: #f0f2f5;
-  --card-bg: #ffffff;
-  --text-color: #333333;
-  --light-text-color: #666666;
-  --border-color: #e0e0e0;
-  --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+/* Main container and body styling */
 body {
-  font-family: 'Poppins', sans-serif;
+  background-color: #f7f9fc; /* A very light, soft gray-blue */
+  color: #333;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
 }
 
 .app-container {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  justify-content: center;
   align-items: center;
+  min-height: 100vh;
   padding: 2rem;
   box-sizing: border-box;
 }
 
 .app-header {
+  background-color: #ffffff; /* White background for the main card */
+  padding: 3rem;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft shadow */
   text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.app-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.app-subtitle {
-  font-size: 1.1rem;
-  color: var(--light-text-color);
-  margin-top: 0.5rem;
-}
-
-.app-main {
+  max-width: 600px;
   width: 100%;
-  max-width: 800px;
-  background-color: var(--card-bg);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-light);
 }
 
-.input-section {
-  margin-bottom: 2rem;
-}
-
-.input-label {
-  display: block;
-  font-weight: 600;
+/* Typography styles */
+.app-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #2c3e50; /* Dark charcoal color */
   margin-bottom: 0.5rem;
-  color: var(--text-color);
 }
 
-.input-group {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+.app-header p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-top: 0;
+}
+
+/* Input and button styling */
+.input-card {
+  margin-top: 2rem;
 }
 
 .text-input {
-  flex-grow: 1;
-  padding: 0.8rem 1rem;
+  width: 100%;
+  padding: 1rem;
   font-size: 1rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid #ddd;
   border-radius: 8px;
-  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 .text-input:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: #3498db; /* Blue focus highlight */
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-.action-button {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+.main-button {
+  background-color: #3498db; /* A vibrant, eye-catching blue */
   color: #fff;
   border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
+  transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-.primary-button {
-  background-color: var(--primary-color);
+.main-button:hover {
+  background-color: #2980b9; /* A slightly darker blue on hover */
+  transform: translateY(-2px);
 }
 
-.primary-button:hover {
-  background-color: var(--primary-dark);
-}
-
-.secondary-button {
-  background-color: var(--secondary-color);
-}
-
-.secondary-button:hover {
-  background-color: var(--secondary-dark);
-}
-
-.action-button:disabled {
-  background-color: #cccccc;
+.main-button:disabled {
+  background-color: #bdc3c7;
   cursor: not-allowed;
+  transform: translateY(0);
 }
 
-.spinner {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.button-icon {
-  font-size: 1.1rem;
-}
-
-.status-message {
-  margin-top: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-}
-
-.status-message.success {
-  background-color: #e6f7e9;
-  color: #28a745;
-}
-
-.status-message.error {
-  background-color: #f8e6e6;
-  color: #dc3545;
+/* Content sections */
+.summary-section, .answer-section {
+  background-color: #ecf0f1;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+  text-align: left;
+  line-height: 1.8;
+  white-space: pre-wrap; /* Preserve formatting from the response */
+  word-wrap: break-word; /* Ensure long words wrap */
 }
 
 .answer-section {
+  margin-top: 1rem;
+  background-color: #e8f4f8; /* A slightly different color for the answer section */
+}
+
+.question-card {
   margin-top: 2rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 2rem;
-}
-
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-}
-
-.answer-box {
-  background-color: var(--bg-color);
-  padding: 1.5rem;
-  border-radius: 8px;
-  white-space: pre-wrap;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-@media (max-width: 600px) {
-  .app-main {
-    padding: 1rem;
-  }
-  .input-group {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .action-button {
-    width: 100%;
-  }
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Add shadow to make it a card */
+  text-align: left;
 }
